@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const User = require('../model/User');
 
 
 const users = [
@@ -31,19 +32,19 @@ router.get("/:id", (req, res) => {
 
 });
 
-router.post("/", (req, res) => {
-  const body = req.body;
 
-  body.id = users.length + 1;
+router.post("/", async (req, res) => {
+  const json = req.body;
 
-  console.log(body);
+  const user = new User(json);
 
-  users.push(body);
+  const hasErrors = user.validateSync();
 
-  res.json(body);
-})
+  return hasErrors
+    ? res.status(400).json(hasErrors)
+    : res.status(201).json(await user.save());
 
-
+});
 
 
 module.exports = router;

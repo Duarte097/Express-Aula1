@@ -3,14 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoose = require('./routes/users');
+const mongoose = require("mongoose");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose.connect("mongodb+srv://bioshock197:JezMqajYBIu41kzY@cluster0.2pvrijl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
+mongoose.connect("mongodb+srv://bioshock197:Cza7LaZ7TEQs2Djl@cluster0.2pvrijl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
   console.log("MongoDB conectado, Oba!!!");
 }).catch((err) => {
   console.log("MongoDB não conectado");

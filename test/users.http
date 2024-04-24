@@ -1,12 +1,15 @@
 @url=http://localhost:3000/users
 
+
 ### CRIAR
 POST {{url}}
 Content-Type: application/json
 
 {
-    "nome": "Juca",
-    "email": "j@gmail.com"
+    "name": "Juca",
+    "email": "j@gmail.com",
+    "password": "1234",
+    "birth": "2000-01-01"
 }
 
 ### GET ALL
