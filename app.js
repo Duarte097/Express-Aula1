@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+require("dotenv").config();
+
 var app = express();
 
 mongoose.connect("mongodb+srv://bioshock197:Cza7LaZ7TEQs2Djl@cluster0.2pvrijl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {

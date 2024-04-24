@@ -3,33 +3,22 @@ var router = express.Router();
 const User = require('../model/User');
 
 
-const users = [
-  {id: 1, nome: "Ana", email: "ana@a.com"},
-  {id: 2,nome: "Julio", email: "j@a.com"},
-  {id: 3, nome: "Mauro", email:"mauro@a.com"},
-  {id: 4, nome: "Mateus", email: "mateus@a.com"}
-]
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get("/", function(req, res){
-  console.log("Obter todos");
-  res.json(users);
+router.get("/", async function(req, res){
+  return await res.json(User.find());
 });
 
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(req.params)
+router.get("/:id", async (req, res) => {
+  const {id} = req.params;
 
-  var user = users.find(e => e.id === id);
-
-  return user 
-   ? res.json(user)
-   : res.status(404).json({message: "id inválido"});
-
+  const result = await User.findById(id);
+  return result
+    ? res.json(result)
+    : res.status(404).send();
 });
 
 

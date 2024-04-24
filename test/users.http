@@ -15,4 +15,7 @@ Content-Type: application/json
 ### GET ALL
 GET {{url}}
 
+### GET by id
+GET {{url}}/6628f5166ecd4a0c2f0cac43
+
 
