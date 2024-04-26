@@ -7,15 +7,15 @@ Content-Type: application/json
 
 {
     "name": "Juca",
-    "email": "j@gmail.com",
+    "email": "juca@gmail.com",
     "password": "1234",
     "birth": "2000-01-01"
 }
 
 ### GET ALL
 GET {{url}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmJiODM4MTJhYTE0MmZkOWFjN2FiNyIsImlhdCI6MTcxNDEzMjk1MywiZXhwIjoxNzE0MTM2NTUzfQ.E7aMkIT4nGHZbSE2631iB-ckXqrQqfFxYa2_S0CfLiw
 
 ### GET by id
 GET {{url}}/6628f5166ecd4a0c2f0cac43
-
-
+Authorization: 

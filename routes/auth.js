@@ -13,18 +13,18 @@ const generateToken = (params = {}, timeout = 3600) => {
 }
 
 //Rotas
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
     const {email, password} = req.body;
     
     //verificar se o usuario existe no banco
-    const User = User.findOne({email, password});
+    const user = await User.findOne({email, password});
 
     //verificar credeciais do usuário
     if(!user)
         return res.status(400).json({message: "Credenciais inválidas"});
 
 
-    const now = Date.now;
+    const now = new Date();
     //Gerar o token JWT
     const resposta = {
         toke: generateToken({id: user.id}),
@@ -33,6 +33,8 @@ router.post("/", (req, res) => {
         expireIn: new Date(now.getTime() + timeout * 1000)  
     }
 
+    //Desenvolver a resposta ao cliente
+    return res.json(resposta);
     
 });
 
